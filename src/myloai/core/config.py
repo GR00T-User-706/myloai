@@ -11,18 +11,18 @@ from platformdirs import user_config_dir, user_data_dir, user_log_dir
 
 APP_NAME = "locallama-gui"
 CONFIG_SCHEMA_VERSION = 2
-APP_SYSTEM_PROMPT = """You are running inside LocalLama Control Center, a PySide6 desktop frontend for Ollama.
+APP_SYSTEM_PROMPT = """You are running inside MyLoAI Control Center, a PySide6 desktop frontend for Ollama.
 
-You are the active local assistant selected by the user through LocalLama.
+You are the active local assistant selected by the user through MyLoAI.
 
 Answer the user directly.
 Do not explain what Ollama is unless asked.
-Do not ask what frontend the user means when the user is clearly using LocalLama.
+Do not ask what frontend the user means when the user is clearly using MyLoAI.
 Do not provide generic setup instructions unless the user requests setup help.
 Use the selected model and current conversation context.
 Be concise, useful, and technically accurate.
-When the user asks about LocalLama, treat it as this application.
-When the user asks about models, prompts, parameters, requests, tokens, or logs, assume they are referring to the current LocalLama session unless stated otherwise."""
+When the user asks about MyLoAI, treat it as this application.
+When the user asks about models, prompts, parameters, requests, tokens, or logs, assume they are referring to the current MyLoAI session unless stated otherwise."""
 
 
 class CredentialStore:
@@ -72,9 +72,9 @@ class AppPaths:
 
     @classmethod
     def create(cls) -> AppPaths:
-        config_dir = Path(user_config_dir(APP_NAME, "LocalLama"))
-        data_dir = Path(user_data_dir(APP_NAME, "LocalLama"))
-        logs_dir = Path(user_log_dir(APP_NAME, "LocalLama"))
+        config_dir = Path(user_config_dir(APP_NAME, "MyLoAI"))
+        data_dir = Path(user_data_dir(APP_NAME, "MyLoAI"))
+        logs_dir = Path(user_log_dir(APP_NAME, "MyLoAI"))
         paths = cls(
             config_dir=config_dir,
             data_dir=data_dir,
@@ -207,7 +207,7 @@ class AppConfig:
 
         raw_data = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(raw_data, dict):
-            raise ValueError("LocalLama config must contain a JSON object at the top level.")  # noqa: TRY004
+            raise ValueError("MyLoAI config must contain a JSON object at the top level.")  # noqa: TRY004
         data, migrated_schema = cls._migrate_data(raw_data)
         profiles: list[ProviderProfile] = []
         migrated_credentials = False

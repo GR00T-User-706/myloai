@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from locallama_gui.core.config import (
+from myloai.core.config import (
     AppConfig,
     AppPaths,
     GenerationParameters,
@@ -23,7 +23,7 @@ def test_config_load_save_roundtrip(monkeypatch, tmp_path):
             plugins_dir=base / "data" / "plugins",
         )
 
-    monkeypatch.setattr("locallama_gui.core.config.AppPaths.create", _fake_create)
+    monkeypatch.setattr("myloai.core.config.AppPaths.create", _fake_create)
 
     paths = _fake_create()
     for p in [
@@ -83,7 +83,7 @@ def test_reasoning_mode_persists_in_config(monkeypatch, tmp_path):
             plugins_dir=base / "data" / "plugins",
         )
 
-    monkeypatch.setattr("locallama_gui.core.config.AppPaths.create", _fake_create)
+    monkeypatch.setattr("myloai.core.config.AppPaths.create", _fake_create)
     paths = _fake_create()
     paths.config_dir.mkdir(parents=True, exist_ok=True)
 

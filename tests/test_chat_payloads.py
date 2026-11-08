@@ -1,8 +1,8 @@
-from locallama_gui.backends.ollama import OllamaBackend
-from locallama_gui.core.domain import ChatMessage
+from myloai.backends.ollama import OllamaBackend
+from myloai.core.domain import ChatMessage
 
 # Reserved for direct OpenAI payload coverage when that test path is restored.
-# from locallama_gui.backends.openai import OpenAICompatibleBackend
+# from myloai.backends.openai import OpenAICompatibleBackend
 
 
 def test_ollama_payload_serializes_user_prompt() -> None:
@@ -27,7 +27,7 @@ def test_ollama_payload_serializes_user_prompt() -> None:
 def test_openai_payload_serializes_user_prompt() -> None:
     # The payload is exercised through the backend implementation contract by
     # checking its message normalization helper directly.
-    from locallama_gui.backends.base import build_chat_messages
+    from myloai.backends.base import build_chat_messages
 
     assert build_chat_messages([ChatMessage("user", "Hello")]) == [
         {"role": "user", "content": "Hello"}
@@ -35,7 +35,7 @@ def test_openai_payload_serializes_user_prompt() -> None:
 
 
 def test_empty_chat_messages_are_rejected() -> None:
-    from locallama_gui.backends.base import build_chat_messages
+    from myloai.backends.base import build_chat_messages
 
     try:
         build_chat_messages([ChatMessage("user", "   ")])
@@ -46,7 +46,7 @@ def test_empty_chat_messages_are_rejected() -> None:
 
 
 def test_invalid_role_is_rejected() -> None:
-    from locallama_gui.backends.base import build_chat_messages
+    from myloai.backends.base import build_chat_messages
 
     message = ChatMessage("user", "Hello")
     message.role = "bogus"  # type: ignore[assignment]

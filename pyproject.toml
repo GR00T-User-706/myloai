@@ -24,11 +24,11 @@ dependencies = [
 dev = ["pytest>=8.2.0", "ruff>=0.5.0"]
 
 [project.scripts]
-myloai = "locallama_gui.app:main"
-locallama-gui = "locallama_gui.app:main"
+myloai = "myloai.app:main"
 
 [tool.setuptools.packages.find]
-include = ["locallama_gui*"]
+where = ["src"]
+include = ["myloai*"]
 
 [tool.ruff]
 line-length = 100

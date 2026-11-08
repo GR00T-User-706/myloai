@@ -34,7 +34,7 @@ EOF
 chmod 0755 "$STAGE_DIR/usr/bin/myloai"
 
 install -Dm644 packaging/linux/myloai.desktop "$STAGE_DIR/usr/share/applications/myloai.desktop"
-install -Dm644 packaging/linux/appimage/myloai.svg "$STAGE_DIR/usr/share/icons/hicolor/scalable/apps/myloai.svg"
+install -Dm644 packaging/linux/appimage/myloai.svg "$STAGE_DIR/usr/share/icons/hicolor/512x512/apps/myloai.png"
 install -Dm644 packaging/USER_MANUAL.md "$STAGE_DIR/usr/share/doc/myloai/USER_MANUAL.md"
 install -Dm644 LICENSE "$STAGE_DIR/usr/share/doc/myloai/LICENSE"
 install -Dm644 packaging/linux/myloai.1 "$STAGE_DIR/usr/share/man/man1/myloai.1"

@@ -1,6 +1,6 @@
 from PySide6.QtCore import Qt
 
-from locallama_gui.ui.main_window import _build_readonly_table_item
+from myloai.ui.main_window import _build_readonly_table_item
 
 
 def test_model_metadata_table_items_are_non_editable_and_selectable():

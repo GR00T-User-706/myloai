@@ -1,8 +1,8 @@
 from types import SimpleNamespace
 
-from locallama_gui.core.domain import ChatSession
-from locallama_gui.ui.controllers.chat_controller import ChatController
-from locallama_gui.ui.controllers.model_controller import ModelController
+from myloai.core.domain import ChatSession
+from myloai.ui.controllers.chat_controller import ChatController
+from myloai.ui.controllers.model_controller import ModelController
 
 
 class _FakeWindow:

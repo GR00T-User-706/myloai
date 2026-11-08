@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from locallama_gui.core.domain import ChatMessage
+from myloai.core.domain import ChatMessage
 
 INTERNAL_PROMPT_REDACTION = "[redacted app system prompt]"
 

@@ -11,10 +11,10 @@ fi
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 REPO_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
-SOURCE="$REPO_ROOT/packaging/linux/com.github.gr00t-user-706.locallama-gui.desktop"
+SOURCE="$REPO_ROOT/packaging/linux/myloai.desktop"
 TARGET_DIR="${HOME}/.local/share/applications"
-TARGET="$TARGET_DIR/com.github.gr00t-user-706.locallama-gui.desktop"
-LAUNCHER_PATH="${HOME}/.local/bin/run-locallama"
+TARGET="$TARGET_DIR/myloai.desktop"
+LAUNCHER_PATH="${HOME}/.local/bin/myloai"
 
 [ -f "$SOURCE" ] || { echo "Missing desktop source file at $SOURCE" >&2; exit 1; }
 

@@ -3,8 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Protocol
 
-from locallama_gui.core.domain import ChatMessage, ChatSession
-from locallama_gui.ui.chat_view import message_is_internal_system
+from myloai.core.domain import ChatMessage, ChatSession
+from myloai.ui.chat_view import message_is_internal_system
 
 
 class ChatWindowPort(Protocol):

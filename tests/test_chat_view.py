@@ -1,5 +1,5 @@
-from locallama_gui.core.domain import ChatMessage
-from locallama_gui.ui.chat_view import (
+from myloai.core.domain import ChatMessage
+from myloai.ui.chat_view import (
     INTERNAL_PROMPT_REDACTION,
     assistant_label,
     compute_scroll_restore_plan,

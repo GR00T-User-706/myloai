@@ -70,7 +70,7 @@ EOF
         "$pkgdir/usr/share/doc/myloai/USER_MANUAL.md"
 
     install -Dm644 packaging/linux/appimage/myloai.svg \
-        "$pkgdir/usr/share/icons/hicolor/scalable/apps/myloai.svg"
+        "$pkgdir/usr/share/icons/hicolor/512x512/apps/myloai.png"
 
     install -Dm644 LICENSE \
         "$pkgdir/usr/share/licenses/myloai/LICENSE"

@@ -33,25 +33,25 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from locallama_gui.backends.manager import create_backend
-from locallama_gui.backends.ollama import OllamaBackend
-from locallama_gui.core.config import APP_SYSTEM_PROMPT, AppConfig
-from locallama_gui.core.domain import ChatMessage, ChatSession, ModelInfo
-from locallama_gui.core.managers import (
+from myloai.backends.manager import create_backend
+from myloai.backends.ollama import OllamaBackend
+from myloai.core.config import APP_SYSTEM_PROMPT, AppConfig
+from myloai.core.domain import ChatMessage, ChatSession, ModelInfo
+from myloai.core.managers import (
     AgentManager,
     PluginContext,
     PluginManager,
     PromptManager,
     SessionManager,
 )
-from locallama_gui.ui.chat_view import (
+from myloai.ui.chat_view import (
     assistant_label,
     compute_scroll_restore_plan,
     redacted_request_messages,
     visible_chat_messages,
 )
-from locallama_gui.ui.controllers import ChatController, ModelController, PluginController
-from locallama_gui.ui.diagnostics import (
+from myloai.ui.controllers import ChatController, ModelController, PluginController
+from myloai.ui.diagnostics import (
     DiagnosticsSignals,
     LineBufferedStream,
     OperationStreamParser,
@@ -59,7 +59,7 @@ from locallama_gui.ui.diagnostics import (
     QtLogHandler,
     append_output,
 )
-from locallama_gui.ui.dialogs import (
+from myloai.ui.dialogs import (
     AgentBuilderDialog,
     EndpointDialog,
     ModelfileEditor,
@@ -67,8 +67,8 @@ from locallama_gui.ui.dialogs import (
     PluginManagerDialog,
     PromptManagerDialog,
 )
-from locallama_gui.ui.theme import dark_qss
-from locallama_gui.ui.workers import AsyncTask, StreamTask
+from myloai.ui.theme import dark_qss
+from myloai.ui.workers import AsyncTask, StreamTask
 
 LOG = logging.getLogger(__name__)
 
@@ -76,7 +76,7 @@ LOG = logging.getLogger(__name__)
 # from PySide6.QtWidgets import QLineEdit, QSplitter, QTreeWidget, QTreeWidgetItem
 # Historical stylesheet constant retained as a reference; the active MainWindow
 # uses dark_qss(font_size) so font-size changes remain centralized.
-# from locallama_gui.ui.theme import DARK_QSS
+# from myloai.ui.theme import DARK_QSS
 
 
 def _build_readonly_table_item(value: str) -> QTableWidgetItem:
@@ -191,7 +191,7 @@ class MainWindow(QMainWindow):
     def __init__(self, config: AppConfig) -> None:
         super().__init__()
         self.config = config
-        self.setWindowTitle("LocalLama Control Center")
+        self.setWindowTitle("MyLoAI Control Center")
         self.resize(1440, 900)
         self.setStyleSheet(dark_qss(self.config.ui.font_size))
         self.sessions = SessionManager(config)
@@ -992,7 +992,7 @@ class MainWindow(QMainWindow):
         QMessageBox.about(
             self,
             "About",
-            "LocalLama Control Center\nA PySide6 IDE-grade desktop application for local and remote LLMs.",
+            "MyLoAI Control Center\nA PySide6 IDE-grade desktop application for local and remote LLMs.",
         )
 
     def diagnostics(self) -> None:

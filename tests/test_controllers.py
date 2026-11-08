@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 
-from locallama_gui.core.domain import ChatMessage, ChatSession
-from locallama_gui.ui.controllers.chat_controller import ChatController
+from myloai.core.domain import ChatMessage, ChatSession
+from myloai.ui.controllers.chat_controller import ChatController
 
 
 class FakeWindow:
@@ -68,8 +68,8 @@ def test_save_current_regression():
     assert window.saved is True
     assert "Saved chat session" in window.logs
 
-from locallama_gui.ui.controllers.model_controller import ModelController
-from locallama_gui.ui.controllers.plugin_controller import PluginController
+from myloai.ui.controllers.model_controller import ModelController
+from myloai.ui.controllers.plugin_controller import PluginController
 
 
 def test_edit_message_uses_visible_index_and_skips_internal_system(monkeypatch):

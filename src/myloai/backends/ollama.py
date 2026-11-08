@@ -7,8 +7,8 @@ from typing import Any, ClassVar
 
 import httpx
 
-from locallama_gui.backends.base import BackendStatus, LLMBackend
-from locallama_gui.core.domain import ChatMessage, ModelInfo
+from myloai.backends.base import BackendStatus, LLMBackend
+from myloai.core.domain import ChatMessage, ModelInfo
 
 
 class OllamaBackend(LLMBackend):

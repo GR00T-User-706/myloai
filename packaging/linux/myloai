@@ -1,4 +1,4 @@
 #!/bin/sh
 set -eu
 
-exec python3 -m locallama_gui "$@"
+exec python3 -m myloai "$@"

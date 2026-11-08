@@ -17,6 +17,6 @@ def configure_logging(log_dir: Path) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
-        handlers=[logging.FileHandler(log_dir / "locallama-gui.log", encoding="utf-8")],
+        handlers=[logging.FileHandler(log_dir / "myloai.log", encoding="utf-8")],
         force=True,
     )

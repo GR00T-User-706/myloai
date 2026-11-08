@@ -11,7 +11,6 @@ APPIMAGE="$DIST_DIR/MyLoAI-Control-Center-${VERSION}-x86_64.AppImage"
 APPIMAGETOOL="${APPIMAGETOOL:-$ROOT_DIR/build/appimagetool}"
 
 cd "$ROOT_DIR"
-python packaging/assets/generate_myloai_icon.py
 rm -rf "$APPDIR"
 mkdir -p "$APPDIR/usr/bin" "$APPDIR/usr/share/applications" "$APPDIR/usr/share/doc/myloai"
 
@@ -23,7 +22,7 @@ cp packaging/linux/myloai.desktop "$APPDIR/myloai.desktop"
 cp packaging/linux/myloai.desktop "$APPDIR/usr/share/applications/myloai.desktop"
 sed -i 's/^Exec=myloai$/Exec=AppRun/' "$APPDIR/myloai.desktop"
 sed -i 's/^Exec=myloai$/Exec=AppRun/' "$APPDIR/usr/share/applications/myloai.desktop"
-cp packaging/linux/appimage/myloai.svg "$APPDIR/myloai.svg"
+cp packaging/assets/MyLoAI-icon-dark.png "$APPDIR/myloai.png"
 cp packaging/USER_MANUAL.md "$APPDIR/usr/share/doc/myloai/USER_MANUAL.md"
 cp LICENSE "$APPDIR/usr/share/doc/myloai/LICENSE"
 

@@ -11,22 +11,22 @@ from platformdirs import user_config_dir
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication
 
-from locallama_gui.core.config import APP_NAME, AppConfig
-from locallama_gui.core.logging import configure_logging
-from locallama_gui.ui.main_window import MainWindow
-from locallama_gui.ui.production_fixes import apply_production_fixes
+from myloai.core.config import APP_NAME, AppConfig
+from myloai.core.logging import configure_logging
+from myloai.ui.main_window import MainWindow
+from myloai.ui.production_fixes import apply_production_fixes
 
 
 def main() -> int:
     os.environ.setdefault("QT_ENABLE_HIGHDPI_SCALING", "1")
     os.environ.setdefault("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
-    config_path = Path(user_config_dir(APP_NAME, "LocalLama")) / "config.json"
+    config_path = Path(user_config_dir(APP_NAME, "MyLoAI")) / "config.json"
     first_run = not config_path.exists()
     config = AppConfig.load()
     configure_logging(config.paths.logs_dir)
     app = QApplication(sys.argv)
     app.setApplicationName("MyLoAI Control Center")
-    app.setOrganizationName("LocalLama")
+    app.setOrganizationName("MyLoAI")
     app.setAttribute(Qt.ApplicationAttribute.AA_DontCreateNativeWidgetSiblings, True)
 
     original_refresh_backend = MainWindow.refresh_backend
