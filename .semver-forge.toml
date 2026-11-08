@@ -10,7 +10,7 @@ source = { type = "toml", file = "pyproject.toml", key = "project.version" }
 
 [git]
 tag_prefix = "v"
-baseline = "724d4f9dfbcb7fe9f825e707e8a0c057b6621221"
+baseline = "0023c55c70d809a3ea9e5bdd97f08f185668111a"
 require_clean = true
 unknown_commit = "ignore"
 merge_commits = "ignore"
@@ -27,5 +27,5 @@ perf = "patch"
 revert = "patch"
 
 [sync]
-targets = [{ type = "text", file = "VERSION" }]
+targets = [{ type = "text", file = "VERSION" }, { type = "yaml", file = "packaging/myloai-package.yaml", key = "control.Version" }, { type = "shell", file = "packaging/linux/PKGBUILD", key = "pkgver" }]
 
