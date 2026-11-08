@@ -168,7 +168,7 @@ Backend availability, authentication, model availability, desktop environment, a
 |---|---|---|---|---|
 | Desktop | Native Linux launcher | implemented | Production Debian installs `/usr/bin/myloai`, which launches the bundled `/opt/myloai/MyLoAI_Control_Center`; AppImage uses `AppRun`. | `packaging/linux/debian/`, `packaging/linux/appimage/` |
 | Desktop | Linux desktop entry | implemented | Production desktop-entry metadata uses the canonical `myloai` command. | `packaging/linux/myloai.desktop` |
-| Desktop | Source-tree launcher | implemented | Development launcher delegates to the Python application entry point and is not used by native production packages. | `run-locallama` |
+| Desktop | Source-tree launcher | implemented | Development launcher delegates to the Python application entry point and is not used by native production packages. | `python -m myloai` |
 | Desktop | Source-tree launcher installation | implemented | Development-only helpers install the repository launcher/desktop entry into the user environment. | `scripts/install-launcher`, `scripts/install-desktop-entry` |
 
 ## 14. Contract rules

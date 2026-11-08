@@ -219,7 +219,7 @@ Also verify:
 - [ ] Debian `/usr/bin/myloai` launches the bundled application without Python or the source repository.
 - [ ] AppImage `AppRun` launches `usr/bin/MyLoAI_Control_Center`.
 - [ ] Linux desktop entry uses `Exec=myloai`.
-- [ ] Source-tree `run-locallama` remains limited to development use.
+- [ ] Source-tree `python -m myloai` remains limited to development use.
 
 ## 14. Release sign-off
 

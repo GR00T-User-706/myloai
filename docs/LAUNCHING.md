@@ -30,7 +30,7 @@ paths do not invoke the repository source-tree launcher.
 These methods are for repository development only:
 
 - `python -m myloai`
-- `./run-locallama`
+- `./python -m myloai`
 - `./scripts/install-launcher`
 - `./scripts/install-desktop-entry`
 

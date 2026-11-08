@@ -179,6 +179,6 @@ Do not ask end users to:
 - clone the repository
 - run `pip install`
 - run `python -m myloai`
-- use `run-locallama`
+- use `python -m myloai`
 
 Those are development/build paths, not production installation paths.
