@@ -163,7 +163,7 @@ The active MyLoAI repository is being consolidated under one application identit
 
 **MyLoAI Control Center**
 
-The active codebase should use the canonical MyLoAI identity consistently. Legacy names such as `LocalLama`, `locallama-gui`, and `locallama_gui` belong to historical context only unless a future migration document explicitly needs to refer to the old project.
+The active codebase should use the canonical MyLoAI identity consistently. Legacy names such as `MyLoAI`, `myloai`, and `myloai` belong to historical context only unless a future migration document explicitly needs to refer to the old project.
 
 ## Non-goals for the current migration
 

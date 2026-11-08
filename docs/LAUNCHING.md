@@ -1,7 +1,7 @@
 # Launching MyLoAI Control Center
 
 MyLoAI Control Center is the end-user product name. The repository and Python
-module namespace remain `locallama-gui` / `locallama_gui` for compatibility.
+module namespace remain `myloai` / `myloai` for compatibility.
 
 ## Native installers
 
@@ -20,7 +20,7 @@ Debian, AppImage, Windows, and macOS production artifacts bundle the application
 - Debian installed executable: `/opt/myloai/MyLoAI_Control_Center`
 - AppImage entry point: `AppRun`
 - Filesystem-safe executable identity: `MyLoAI_Control_Center`
-- Compatibility Python command: `locallama-gui`
+- Compatibility Python command: `myloai`
 
 The production Linux desktop entry uses `Exec=myloai`. Native package launch
 paths do not invoke the repository source-tree launcher.
@@ -29,8 +29,8 @@ paths do not invoke the repository source-tree launcher.
 
 These methods are for repository development only:
 
-- `python -m locallama_gui`
-- `./run-locallama`
+- `python -m myloai`
+- `./python -m myloai`
 - `./scripts/install-launcher`
 - `./scripts/install-desktop-entry`
 
@@ -45,7 +45,7 @@ native production runtime path.
 The desktop entry references the scalable application icon:
 
 ```text
-packaging/linux/icons/com.github.gr00t-user-706.locallama-gui.svg
+packaging/linux/icons/com.github.gr00t-user-706.myloai.svg
 ```
 
 The desktop installer must install that icon into an XDG icon-theme location before refreshing the desktop database so the entry resolves its `Icon=` name correctly.

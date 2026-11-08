@@ -3,8 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from locallama_gui.core.config import AppConfig, AppPaths, CredentialStore, ProviderProfile
-from locallama_gui.core.managers import PluginContext, PluginManager
+from myloai.core.config import AppConfig, AppPaths, CredentialStore, ProviderProfile
+from myloai.core.managers import PluginContext, PluginManager
 
 
 def _paths(tmp_path: Path) -> AppPaths:

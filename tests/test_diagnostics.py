@@ -4,7 +4,7 @@ from types import SimpleNamespace
 from PySide6.QtGui import QTextCursor
 from PySide6.QtWidgets import QApplication, QPlainTextEdit
 
-from locallama_gui.ui.diagnostics import (
+from myloai.ui.diagnostics import (
     LineBufferedStream,
     OperationStreamParser,
     QtLogHandler,
@@ -85,7 +85,7 @@ def test_operation_update_refreshes_live_status_and_progress_without_history_spa
     first = parser.feed('{"status":"pulling","total":200,"completed":50}')[0]
     repeated = parser.feed('{"status":"pulling","total":200,"completed":100}')[0]
 
-    from locallama_gui.ui.main_window import MainWindow
+    from myloai.ui.main_window import MainWindow
 
     MainWindow.update_operation(window, first)
     MainWindow.update_operation(window, repeated)

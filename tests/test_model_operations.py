@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 
-from locallama_gui.ui.controllers.model_controller import ModelController
-from locallama_gui.ui.main_window import MainWindow
+from myloai.ui.controllers.model_controller import ModelController
+from myloai.ui.main_window import MainWindow
 
 
 class _Signal:
@@ -126,9 +126,9 @@ def test_run_async_routes_lifecycle_to_operations_before_dialog(monkeypatch):
         log=lambda text: events.append(("log", text)),
         refresh_backend=lambda: events.append(("refresh",)),
     )
-    monkeypatch.setattr("locallama_gui.ui.main_window.AsyncTask", _AsyncTask)
+    monkeypatch.setattr("myloai.ui.main_window.AsyncTask", _AsyncTask)
     monkeypatch.setattr(
-        "locallama_gui.ui.main_window.QMessageBox.critical",
+        "myloai.ui.main_window.QMessageBox.critical",
         lambda _parent, title, error: events.append(("dialog", title, error)),
     )
 
@@ -152,10 +152,10 @@ def test_run_async_routes_lifecycle_to_operations_before_dialog(monkeypatch):
 def test_pull_stream_collapses_repeated_status_and_updates_progress(monkeypatch):
     _patch_widgets(monkeypatch, text=("  llama3.1:8b  ", True))
     monkeypatch.setattr(
-        "locallama_gui.ui.controllers.model_controller.StreamTask", _StreamTask
+        "myloai.ui.controllers.model_controller.StreamTask", _StreamTask
     )
     monkeypatch.setattr(
-        "locallama_gui.ui.controllers.model_controller.create_backend",
+        "myloai.ui.controllers.model_controller.create_backend",
         lambda _profile: SimpleNamespace(pull_model=lambda _name: None),
     )
     window = _ModelWindow()
@@ -180,10 +180,10 @@ def test_pull_stream_collapses_repeated_status_and_updates_progress(monkeypatch)
 def test_pull_partial_chunks_do_not_create_corrupt_history(monkeypatch):
     _patch_widgets(monkeypatch)
     monkeypatch.setattr(
-        "locallama_gui.ui.controllers.model_controller.StreamTask", _StreamTask
+        "myloai.ui.controllers.model_controller.StreamTask", _StreamTask
     )
     monkeypatch.setattr(
-        "locallama_gui.ui.controllers.model_controller.create_backend",
+        "myloai.ui.controllers.model_controller.create_backend",
         lambda _profile: SimpleNamespace(pull_model=lambda _name: None),
     )
     window = _ModelWindow()
@@ -200,10 +200,10 @@ def test_pull_partial_chunks_do_not_create_corrupt_history(monkeypatch):
 def test_stream_error_updates_operations_before_dialog(monkeypatch):
     dialog_events = _patch_widgets(monkeypatch, events=[])
     monkeypatch.setattr(
-        "locallama_gui.ui.controllers.model_controller.StreamTask", _StreamTask
+        "myloai.ui.controllers.model_controller.StreamTask", _StreamTask
     )
     monkeypatch.setattr(
-        "locallama_gui.ui.controllers.model_controller.create_backend",
+        "myloai.ui.controllers.model_controller.create_backend",
         lambda _profile: SimpleNamespace(push_model=lambda _name: None),
     )
     window = _ModelWindow()
@@ -228,9 +228,9 @@ def test_clone_strips_names_and_delete_contract_remains_public(monkeypatch):
 
 
 def test_create_stream_uses_operations_without_console_output(monkeypatch):
-    monkeypatch.setattr("locallama_gui.ui.main_window.StreamTask", _StreamTask)
+    monkeypatch.setattr("myloai.ui.main_window.StreamTask", _StreamTask)
     monkeypatch.setattr(
-        "locallama_gui.ui.main_window.create_backend",
+        "myloai.ui.main_window.create_backend",
         lambda _profile: SimpleNamespace(create_model=lambda _name, _modelfile: None),
     )
     events = []
@@ -256,7 +256,7 @@ def test_create_stream_uses_operations_without_console_output(monkeypatch):
 def test_templates_require_a_selected_model(monkeypatch):
     events = []
     monkeypatch.setattr(
-        "locallama_gui.ui.main_window.QMessageBox.information",
+        "myloai.ui.main_window.QMessageBox.information",
         lambda _parent, title, message: events.append((title, message)),
     )
     window = SimpleNamespace(model_combo=SimpleNamespace(currentText=lambda: "   "))
@@ -270,13 +270,13 @@ def test_templates_require_a_selected_model(monkeypatch):
 
 def test_templates_route_lifecycle_to_operations_before_dialog(monkeypatch):
     events = []
-    monkeypatch.setattr("locallama_gui.ui.main_window.AsyncTask", _AsyncTask)
+    monkeypatch.setattr("myloai.ui.main_window.AsyncTask", _AsyncTask)
     monkeypatch.setattr(
-        "locallama_gui.ui.main_window.create_backend",
+        "myloai.ui.main_window.create_backend",
         lambda _profile: SimpleNamespace(show_model=lambda _name: None),
     )
     monkeypatch.setattr(
-        "locallama_gui.ui.main_window.QMessageBox.critical",
+        "myloai.ui.main_window.QMessageBox.critical",
         lambda _parent, title, error: events.append(("dialog", title, error)),
     )
     window = SimpleNamespace(

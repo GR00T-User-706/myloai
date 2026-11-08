@@ -15,9 +15,9 @@ from PySide6.QtWidgets import (
     QWizardPage,
 )
 
-from locallama_gui.backends.manager import create_backend
-from locallama_gui.ui.model_browser import CATALOG
-from locallama_gui.ui.workers import AsyncTask
+from myloai.backends.manager import create_backend
+from myloai.ui.model_browser import CATALOG
+from myloai.ui.workers import AsyncTask
 
 
 class FirstRunWizard(QWizard):
@@ -174,8 +174,8 @@ class FirstRunWizard(QWizard):
 
         self.setEnabled(False)
         self.parent().begin_operation(f"Pull starter model: {model}")
-        from locallama_gui.ui.diagnostics import OperationStreamParser
-        from locallama_gui.ui.workers import StreamTask
+        from myloai.ui.diagnostics import OperationStreamParser
+        from myloai.ui.workers import StreamTask
 
         parser = OperationStreamParser()
         task = StreamTask(lambda: create_backend(profile).pull_model(model))

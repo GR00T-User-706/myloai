@@ -6,10 +6,10 @@ Scope: Baseline production map for Phase 1 documentation sync.
 ## Identity
 
 ### CONFIRMED
-- Active production application package is `locallama_gui/`.
-- Primary runtime entrypoint is `locallama_gui/app.py` via:
-  - `locallama-gui` console script (`pyproject.toml`)
-  - `python -m locallama_gui` (`locallama_gui/__main__.py`)
+- Active production application package is `src/myloai/`.
+- Primary runtime entrypoint is `src/myloai/app.py` via:
+  - `myloai` console script (`pyproject.toml`)
+  - `python -m myloai` (`src/myloai/__main__.py`)
 
 ### CONFIRMED
 - `archive/legacy_code/llm_studio/` and `archive/old_apps/ollama_GUI/` are not part of active production runtime.
@@ -21,16 +21,16 @@ Scope: Baseline production map for Phase 1 documentation sync.
 
 | Path | Role | Status | Notes |
 |---|---|---|---|
-| `locallama_gui/app.py` | QApplication bootstrap | CONFIRMED_ACTIVE | Loads config, logging, `MainWindow`. |
-| `locallama_gui/__main__.py` | module launcher | CONFIRMED_ACTIVE | Delegates to `app.main()`. |
-| `locallama_gui/ui/main_window.py` | main UI surface | CONFIRMED_ACTIVE | Menus, docks, tabs, orchestration. |
-| `locallama_gui/ui/dialogs.py` | dialogs | CONFIRMED_ACTIVE | Parameters/plugins/agent/modelfile dialogs. |
-| `locallama_gui/ui/controllers/` | action routing | CONFIRMED_ACTIVE | Chat/model/plugin controllers. |
-| `locallama_gui/ui/workers.py` | background tasks | CONFIRMED_ACTIVE | Stream/async operations. |
-| `locallama_gui/backends/` | provider backends | CONFIRMED_ACTIVE | Ollama + OpenAI-compatible backends. |
-| `locallama_gui/core/config.py` | config + settings persistence | CONFIRMED_ACTIVE | App paths, providers, parameters, UI state. |
-| `locallama_gui/core/managers.py` | session/prompt/agent/plugin managers | CONFIRMED_ACTIVE | Core manager layer. |
-| `locallama_gui/core/domain.py` | domain models | CONFIRMED_ACTIVE | Dataclasses for runtime objects. |
+| `src/myloai/app.py` | QApplication bootstrap | CONFIRMED_ACTIVE | Loads config, logging, `MainWindow`. |
+| `src/myloai/__main__.py` | module launcher | CONFIRMED_ACTIVE | Delegates to `app.main()`. |
+| `src/myloai/ui/main_window.py` | main UI surface | CONFIRMED_ACTIVE | Menus, docks, tabs, orchestration. |
+| `src/myloai/ui/dialogs.py` | dialogs | CONFIRMED_ACTIVE | Parameters/plugins/agent/modelfile dialogs. |
+| `src/myloai/ui/controllers/` | action routing | CONFIRMED_ACTIVE | Chat/model/plugin controllers. |
+| `src/myloai/ui/workers.py` | background tasks | CONFIRMED_ACTIVE | Stream/async operations. |
+| `src/myloai/backends/` | provider backends | CONFIRMED_ACTIVE | Ollama + OpenAI-compatible backends. |
+| `src/myloai/core/config.py` | config + settings persistence | CONFIRMED_ACTIVE | App paths, providers, parameters, UI state. |
+| `src/myloai/core/managers.py` | session/prompt/agent/plugin managers | CONFIRMED_ACTIVE | Core manager layer. |
+| `src/myloai/core/domain.py` | domain models | CONFIRMED_ACTIVE | Dataclasses for runtime objects. |
 | `plugins/sample_plugin.py` | sample plugin | LIKELY_OPTIONAL | Not required for app startup. |
 | `tests/` | active test suite | CONFIRMED_ACTIVE | Production-focused tests. |
 | `archive/legacy_code/llm_studio/` | archived legacy/parallel tree | CONFIRMED_LEGACY | Historical only; not active entrypoint path. |
@@ -39,7 +39,7 @@ Scope: Baseline production map for Phase 1 documentation sync.
 ## Production Boundaries
 
 ### CONFIRMED
-- Production feature development should target `locallama_gui/**`, `tests/**`, and documentation files.
+- Production feature development should target `src/myloai/**`, `tests/**`, and documentation files.
 
 ### CONFIRMED
 - Archived legacy trees are historical-only and excluded from CI lint/test validation.
@@ -57,27 +57,27 @@ Scope: Baseline production map for Phase 1 documentation sync.
 
 ## AUDIT SEQUENCE: 1
 
-- **Repository:** `GR00T-User-706/locallama-gui`
-- **Repository-relative file:** `locallama_gui/__main__.py`
+- **Repository:** `GR00T-User-706/myloai`
+- **Repository-relative file:** `src/myloai/__main__.py`
 - **Filename:** `__main__.py`
 - **Language:** Python
-- **Package/module:** `locallama_gui.__main__`
+- **Package/module:** `myloai.__main__`
 - **Audit date:** 2026-09-29
 - **Audit status:** Complete
 
 ### File Identity
 
 - File contains 4 source lines.
-- The file is the package module launcher for `python -m locallama_gui`, consistent with the existing production-code map.
+- The file is the package module launcher for `python -m myloai`, consistent with the existing production-code map.
 - No explicit version information is present in this file.
 - No module docstring is present.
 
 ### Imports
 
-#### `from locallama_gui.app import main`
+#### `from myloai.app import main`
 
 - Classification: internal project import.
-- Package/module: `locallama_gui.app`
+- Package/module: `myloai.app`
 - Imported symbol: `main`
 - Alias: none.
 - The imported symbol is invoked when this module executes as `__main__`.
@@ -129,11 +129,11 @@ if __name__ == "__main__":
 Direct observations:
 
 - The guarded block executes only when this module is run as the Python entry module.
-- It calls the imported `locallama_gui.app.main` function.
+- It calls the imported `myloai.app.main` function.
 - The return value from `main()` is passed to `SystemExit`.
 - Therefore the process exits using the value returned by `main()` as the `SystemExit` argument.
 - When the module is imported rather than executed as `__main__`, the guarded call is not executed.
-- Importing this module still executes the top-level import of `locallama_gui.app.main`.
+- Importing this module still executes the top-level import of `myloai.app.main`.
 
 ### Inputs
 
@@ -165,7 +165,7 @@ Potential side effects performed by `main()` itself are not determinable from th
 ### External Resources
 
 - No direct file, network, database, subprocess, operating-system resource, or GUI resource access is implemented in this file.
-- Resources accessed by `locallama_gui.app.main` are UNKNOWN / NOT DETERMINABLE FROM SOURCE in this file.
+- Resources accessed by `myloai.app.main` are UNKNOWN / NOT DETERMINABLE FROM SOURCE in this file.
 
 ### Environment / Configuration Dependencies
 
@@ -175,7 +175,7 @@ Potential side effects performed by `main()` itself are not determinable from th
 ### CLI / UI Integration
 
 - This file is a CLI/module-launch integration point rather than a UI implementation.
-- It provides the `python -m locallama_gui` execution path by delegating to `main()`.
+- It provides the `python -m myloai` execution path by delegating to `main()`.
 - No UI widgets, signals, slots, callbacks, or event handlers are defined here.
 
 ### Error Handling
@@ -187,7 +187,7 @@ Potential side effects performed by `main()` itself are not determinable from th
 
 ### Types and Relationships
 
-- Direct dependency: `locallama_gui.__main__` -> `locallama_gui.app.main`.
+- Direct dependency: `myloai.__main__` -> `myloai.app.main`.
 - Runtime relationship: module execution -> `main()` -> `SystemExit`.
 - Inheritance: none.
 - Composition: none.
@@ -195,7 +195,7 @@ Potential side effects performed by `main()` itself are not determinable from th
 
 ### Public vs Internal Interface
 
-- The file's effective public runtime interface is the package module-entry behavior invoked through `python -m locallama_gui`.
+- The file's effective public runtime interface is the package module-entry behavior invoked through `python -m myloai`.
 - The imported `main` name is not defined here and is not documented as a separate API by this file.
 - No explicitly private symbols are present.
 
@@ -203,26 +203,26 @@ Potential side effects performed by `main()` itself are not determinable from th
 
 **DIRECTLY OBSERVED**
 
-- `main` is imported from `locallama_gui.app`.
+- `main` is imported from `myloai.app`.
 - The `__name__ == "__main__"` guard is present.
 - `main()` is called inside that guard.
 - Its return value is passed to `SystemExit`.
 
 **INFERRED**
 
-- The file functions as the package's module launcher. This is supported by its `__main__.py` location and the existing production map's statement that `python -m locallama_gui` delegates to `app.main()`.
+- The file functions as the package's module launcher. This is supported by its `__main__.py` location and the existing production map's statement that `python -m myloai` delegates to `app.main()`.
 
 **UNKNOWN / NOT DETERMINABLE FROM SOURCE**
 
-- The signature, return semantics, exceptions, side effects, and resource usage of `locallama_gui.app.main`.
+- The signature, return semantics, exceptions, side effects, and resource usage of `myloai.app.main`.
 - Whether command-line arguments are consumed indirectly by `main()`.
 - Whether environment variables or configuration are consumed indirectly by `main()`.
 - Whether `main()` initializes a Qt application, performs logging setup, loads configuration, or performs other startup operations.
 
 ### Unresolved Items
 
-- Full behavior of the imported `main` function requires a separate audit execution for `locallama_gui/app.py`.
-- No other unresolved implementation details exist within `locallama_gui/__main__.py` itself.
+- Full behavior of the imported `main` function requires a separate audit execution for `src/myloai/app.py`.
+- No other unresolved implementation details exist within `src/myloai/__main__.py` itself.
 
 STATUS: FULLY MAPPED
 
@@ -230,11 +230,11 @@ STATUS: FULLY MAPPED
 
 ## AUDIT SEQUENCE: 2
 
-- **Repository:** `GR00T-User-706/locallama-gui`
-- **Repository-relative file:** `locallama_gui/app.py`
+- **Repository:** `GR00T-User-706/myloai`
+- **Repository-relative file:** `src/myloai/app.py`
 - **Filename:** `app.py`
 - **Language:** Python
-- **Package/module:** `locallama_gui.app`
+- **Package/module:** `myloai.app`
 - **Audit date:** 2026-09-29
 - **Audit status:** Complete
 - **Source revision audited:** `6ff7759dafa38f8c1243cf57e64917702dd99d4d`
@@ -277,22 +277,22 @@ STATUS: FULLY MAPPED
 - Classification: third-party GUI framework.
 - Used to construct the Qt application object.
 
-#### `from locallama_gui.core.config import APP_NAME, AppConfig`
+#### `from myloai.core.config import APP_NAME, AppConfig`
 - Classification: internal project import.
 - Imported symbols: `APP_NAME`, `AppConfig`.
 - Used for application configuration loading and configuration-directory naming.
 
-#### `from locallama_gui.core.logging import configure_logging`
+#### `from myloai.core.logging import configure_logging`
 - Classification: internal project import.
 - Imported symbol: `configure_logging`.
 - Used to configure application logging using the configured logs directory.
 
-#### `from locallama_gui.ui.main_window import MainWindow`
+#### `from myloai.ui.main_window import MainWindow`
 - Classification: internal project import.
 - Imported symbol: `MainWindow`.
 - Used to create the main application window and temporarily replace its `refresh_backend` method during first-run startup.
 
-#### `from locallama_gui.ui.production_fixes import apply_production_fixes`
+#### `from myloai.ui.production_fixes import apply_production_fixes`
 - Classification: internal project import.
 - Imported symbol: `apply_production_fixes`.
 - Used after window construction and before display.
@@ -317,13 +317,13 @@ No explicit module-level constants, variables, classes, or type aliases are defi
    - Reads the existing environment mapping entry if present.
    - Sets `QT_ENABLE_HIGHDPI_SCALING` to `"1"` only when absent.
 2. Calls `os.environ.setdefault("QT_AUTO_SCREEN_SCALE_FACTOR", "1")` with the same set-if-absent behavior.
-3. Constructs `config_path` as `Path(user_config_dir(APP_NAME, "LocalLama")) / "config.json"`.
+3. Constructs `config_path` as `Path(user_config_dir(APP_NAME, "MyLoAI")) / "config.json"`.
 4. Computes `first_run` as the negation of `config_path.exists()`.
 5. Calls `AppConfig.load()` and stores the resulting object in `config`.
 6. Calls `configure_logging(config.paths.logs_dir)`.
 7. Constructs `QApplication(sys.argv)`.
 8. Sets the Qt application name to `"MyLoAI Control Center"`.
-9. Sets the Qt organization name to `"LocalLama"`.
+9. Sets the Qt organization name to `"MyLoAI"`.
 10. Sets `Qt.ApplicationAttribute.AA_DontCreateNativeWidgetSiblings` on the application.
 11. Saves the original `MainWindow.refresh_backend` attribute in `original_refresh_backend`.
 12. If `first_run` is true, replaces `MainWindow.refresh_backend` with a lambda accepting `self` and returning `None`.
@@ -419,11 +419,11 @@ None.
 
 - `main` composes the startup sequence from `AppConfig`, `configure_logging`, `QApplication`, `MainWindow`, and `apply_production_fixes`.
 - Direct internal dependency relationships:
-  - `locallama_gui.app` -> `locallama_gui.core.config.APP_NAME`
-  - `locallama_gui.app` -> `locallama_gui.core.config.AppConfig`
-  - `locallama_gui.app` -> `locallama_gui.core.logging.configure_logging`
-  - `locallama_gui.app` -> `locallama_gui.ui.main_window.MainWindow`
-  - `locallama_gui.app` -> `locallama_gui.ui.production_fixes.apply_production_fixes`
+  - `myloai.app` -> `myloai.core.config.APP_NAME`
+  - `myloai.app` -> `myloai.core.config.AppConfig`
+  - `myloai.app` -> `myloai.core.logging.configure_logging`
+  - `myloai.app` -> `myloai.ui.main_window.MainWindow`
+  - `myloai.app` -> `myloai.ui.production_fixes.apply_production_fixes`
 - Third-party dependencies:
   - `platformdirs`
   - `PySide6`
@@ -458,7 +458,7 @@ Direct environment dependencies:
 
 Direct configuration dependencies:
 - `APP_NAME` is passed to `user_config_dir`.
-- Literal organization name `"LocalLama"` is also passed to `user_config_dir`.
+- Literal organization name `"MyLoAI"` is also passed to `user_config_dir`.
 - `config.json` is used as the existence test for first-run detection.
 - `AppConfig.load()` supplies the runtime configuration.
 - `config.paths.logs_dir` supplies the logging destination.
@@ -475,12 +475,12 @@ Direct configuration dependencies:
 **DIRECTLY OBSERVED**
 
 - Both Qt scaling environment variables are set with `setdefault`.
-- `config_path` is based on `user_config_dir(APP_NAME, "LocalLama") / "config.json"`.
+- `config_path` is based on `user_config_dir(APP_NAME, "MyLoAI") / "config.json"`.
 - `first_run` is true exactly when that path does not exist at the time of the check.
 - `AppConfig.load()` is called before `configure_logging`.
 - `QApplication` is created with `sys.argv`.
 - The application name is set to `MyLoAI Control Center`.
-- The organization name is set to `LocalLama`.
+- The organization name is set to `MyLoAI`.
 - The Qt application attribute `AA_DontCreateNativeWidgetSiblings` is set.
 - `MainWindow.refresh_backend` is temporarily replaced only when `first_run` is true.
 - The original `refresh_backend` object is restored in `finally`.
@@ -518,11 +518,11 @@ STATUS: FULLY MAPPED
 
 ## AUDIT SEQUENCE: 3
 
-- **Repository:** `GR00T-User-706/locallama-gui`
-- **Repository-relative file:** `locallama_gui/core/config.py`
+- **Repository:** `GR00T-User-706/myloai`
+- **Repository-relative file:** `src/myloai/core/config.py`
 - **Filename:** `config.py`
 - **Language:** Python
-- **Package/module:** `locallama_gui.core.config`
+- **Package/module:** `myloai.core.config`
 - **Audit date:** 2026-09-30
 - **Audit status:** Complete
 - **Source revision audited:** `2d6283ec89786f509fa5089c706c422cafb365dd`
@@ -571,7 +571,7 @@ STATUS: FULLY MAPPED
 ### Module-Level Definitions
 
 #### `APP_NAME`
-- Value: `"locallama-gui"`.
+- Value: `"myloai"`.
 - Used as the application identifier for paths and credential-store service naming.
 
 #### `CONFIG_SCHEMA_VERSION`
@@ -625,7 +625,7 @@ Fields:
 
 #### `create(cls) -> AppPaths`
 - Decorator: `@classmethod`.
-- Calls `user_config_dir(APP_NAME, "LocalLama")`, `user_data_dir(APP_NAME, "LocalLama")`, and `user_log_dir(APP_NAME, "LocalLama")`.
+- Calls `user_config_dir(APP_NAME, "MyLoAI")`, `user_data_dir(APP_NAME, "MyLoAI")`, and `user_log_dir(APP_NAME, "MyLoAI")`.
 - Derives application subdirectories from `data_dir`.
 - Instantiates `AppPaths`.
 - Iterates through all path fields using `asdict(paths).values()`.
@@ -790,7 +790,7 @@ Internal/private interfaces identifiable by naming include `CredentialStore._use
 
 ### Configuration / Environment Dependencies
 
-- `APP_NAME` and organization name `LocalLama` determine platform-specific directories and credential-store service naming.
+- `APP_NAME` and organization name `MyLoAI` determine platform-specific directories and credential-store service naming.
 - Configuration filename is `config.json`.
 - Current schema version is `2`.
 - No environment variables are directly read.

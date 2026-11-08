@@ -7,7 +7,7 @@ from typing import Any
 
 import httpx
 
-from locallama_gui.core.domain import ChatMessage, ModelInfo
+from myloai.core.domain import ChatMessage, ModelInfo
 
 
 @dataclass(slots=True)

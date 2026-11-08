@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from locallama_gui.core.managers import PluginContext, PluginManager
+from myloai.core.managers import PluginContext, PluginManager
 
 
 class FakeConfig:

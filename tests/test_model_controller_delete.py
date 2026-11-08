@@ -1,6 +1,6 @@
 from types import SimpleNamespace
 
-from locallama_gui.ui.controllers.model_controller import ModelController
+from myloai.ui.controllers.model_controller import ModelController
 
 
 class _Window:
@@ -92,7 +92,7 @@ def test_delete_model_confirmed_runs_async(monkeypatch):
     window = _Window(model_name="llama3:8b")
     ctrl = ModelController(SimpleNamespace(active_profile=lambda: SimpleNamespace()), window)
 
-    monkeypatch.setattr("locallama_gui.ui.controllers.model_controller.create_backend", lambda _profile: SimpleNamespace(delete_model=lambda _name: None))
+    monkeypatch.setattr("myloai.ui.controllers.model_controller.create_backend", lambda _profile: SimpleNamespace(delete_model=lambda _name: None))
 
     ctrl.delete_model(parent=None)
 

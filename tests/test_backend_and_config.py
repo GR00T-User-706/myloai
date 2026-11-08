@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from locallama_gui.backends.ollama import OllamaBackend
-from locallama_gui.core.config import AppConfig, AppPaths, ProviderProfile
+from myloai.backends.ollama import OllamaBackend
+from myloai.core.config import AppConfig, AppPaths, ProviderProfile
 
 
 class _FakeResponse:
@@ -45,7 +45,7 @@ class _FakeAsyncClient:
 
 
 def test_ollama_list_models_parsing(monkeypatch):
-    import locallama_gui.backends.ollama as ollama_mod
+    import myloai.backends.ollama as ollama_mod
 
     monkeypatch.setattr(ollama_mod.httpx, "AsyncClient", _FakeAsyncClient)
     backend = OllamaBackend(base_url="http://localhost:11434", api_key="")

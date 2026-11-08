@@ -26,7 +26,7 @@ For an OpenAI-compatible service, enter the service endpoint and credentials req
 
 ## Data and configuration
 
-MyLoAI stores application state using platform-appropriate per-user application directories. Existing `locallama-gui` configuration paths are retained for compatibility with the current application data model.
+MyLoAI stores application state using platform-appropriate per-user application directories. Existing `myloai` configuration paths are retained for compatibility with the current application data model.
 
 ## Diagnostics
 

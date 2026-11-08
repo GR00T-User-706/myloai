@@ -11,9 +11,9 @@ fi
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 REPO_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
-SOURCE="$REPO_ROOT/run-locallama"
+SOURCE="$REPO_ROOT/packaging/linux/myloai"
 TARGET_DIR="${HOME}/.local/bin"
-TARGET="$TARGET_DIR/run-locallama"
+TARGET="$TARGET_DIR/myloai"
 
 [ -f "$SOURCE" ] || { echo "Missing launcher at $SOURCE" >&2; exit 1; }
 

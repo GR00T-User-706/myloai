@@ -6,7 +6,7 @@ control:
   Version: 2.0.0
   Architecture: all
   Maintainer: GR00T-User-706
-  Homepage: https://github.com/GR00T-User-706/locallama-gui
+  Homepage: https://github.com/GR00T-User-706/myloai
   Description: |-
     MyLoAI Control Center Linux production packaging bundle.
      Contains Linux packaging definitions and build documentation for native
@@ -35,8 +35,8 @@ data_files:
     source: linux/appimage/README.md
   share/myloai/packaging/linux/appimage/build-appimage.sh:
     source: linux/appimage/build-appimage.sh
-  share/myloai/packaging/linux/appimage/myloai.svg:
-    source: linux/appimage/myloai.svg
+  share/myloai/packaging/assets/MyLoAI-icon-dark.png:
+    source: assets/MyLoAI-icon-dark.png
   share/myloai/packaging/linux/debian/build-deb.sh:
     source: linux/debian/build-deb.sh
   share/myloai/packaging/linux/debian/README.Debian:
@@ -49,7 +49,7 @@ data_files:
     source: linux/myloai.desktop
   share/myloai/packaging/linux/install-myloai.sh:
     source: linux/install-myloai.sh
-  share/myloai/packaging/linux/icons/com.github.gr00t-user-706.locallama-gui.svg:
-    source: linux/icons/com.github.gr00t-user-706.locallama-gui.svg
+  share/myloai/packaging/assets/MyLoAI-icon-fallback.png:
+    source: assets/MyLoAI-icon-fallback.png
   share/myloai/packaging/pyinstaller/myloai.spec:
     source: pyinstaller/myloai.spec

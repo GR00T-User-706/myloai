@@ -12,13 +12,12 @@ ARCH="amd64"
 APP_NAME="MyLoAI Control Center"
 APP_EXECUTABLE="MyLoAI_Control_Center"
 
-python packaging/assets/generate_myloai_icon.py
 rm -rf "$BUILD_DIR"
 mkdir -p "$STAGE_DIR/DEBIAN" \
     "$STAGE_DIR/opt/myloai" \
     "$STAGE_DIR/usr/bin" \
     "$STAGE_DIR/usr/share/applications" \
-    "$STAGE_DIR/usr/share/icons/hicolor/scalable/apps" \
+    "$STAGE_DIR/usr/share/icons/hicolor/512x512/apps" \
     "$STAGE_DIR/usr/share/doc/myloai" \
     "$STAGE_DIR/usr/share/man/man1"
 
@@ -34,7 +33,7 @@ EOF
 chmod 0755 "$STAGE_DIR/usr/bin/myloai"
 
 install -Dm644 packaging/linux/myloai.desktop "$STAGE_DIR/usr/share/applications/myloai.desktop"
-install -Dm644 packaging/linux/appimage/myloai.svg "$STAGE_DIR/usr/share/icons/hicolor/scalable/apps/myloai.svg"
+install -Dm644 packaging/assets/MyLoAI-icon-dark.png "$STAGE_DIR/usr/share/icons/hicolor/512x512/apps/myloai.png"
 install -Dm644 packaging/USER_MANUAL.md "$STAGE_DIR/usr/share/doc/myloai/USER_MANUAL.md"
 install -Dm644 LICENSE "$STAGE_DIR/usr/share/doc/myloai/LICENSE"
 install -Dm644 packaging/linux/myloai.1 "$STAGE_DIR/usr/share/man/man1/myloai.1"
@@ -47,7 +46,7 @@ Priority: optional
 Architecture: ${ARCH}
 Maintainer: MyLoAI contributors
 Depends: libgl1, libegl1, libglib2.0-0t64 | libglib2.0-0, libdbus-1-3, libfontconfig1, libx11-6, libxext6, libxrender1, libxkbcommon0, libxkbcommon-x11-0, libxcb1, libxcb-cursor0
-Homepage: https://github.com/GR00T-User-706/locallama-gui
+Homepage: https://github.com/GR00T-User-706/myloai
 Description: MyLoAI Control Center
  Native desktop control center for local and remote large language model backends.
  Provides chat, model operations, agents, plugins, diagnostics, and backend management.

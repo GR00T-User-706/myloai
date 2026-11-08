@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from locallama_gui.backends.base import LLMBackend
-from locallama_gui.backends.ollama import OllamaBackend
-from locallama_gui.backends.openai import OpenAICompatibleBackend
-from locallama_gui.core.config import ProviderProfile
+from myloai.backends.base import LLMBackend
+from myloai.backends.ollama import OllamaBackend
+from myloai.backends.openai import OpenAICompatibleBackend
+from myloai.core.config import ProviderProfile
 
 
 def create_backend(profile: ProviderProfile) -> LLMBackend:

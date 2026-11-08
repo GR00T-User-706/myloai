@@ -2,7 +2,7 @@ import asyncio
 
 import httpx
 
-from locallama_gui.backends.ollama import OllamaBackend
+from myloai.backends.ollama import OllamaBackend
 
 
 class _FakeResponse:
@@ -86,7 +86,7 @@ def test_list_models_parses_missing_and_partial_fields(monkeypatch):
     }
 
     monkeypatch.setattr(
-        "locallama_gui.backends.ollama.httpx.AsyncClient",
+        "myloai.backends.ollama.httpx.AsyncClient",
         lambda **kwargs: _FakeAsyncClient(response=_FakeResponse(payload=payload), **kwargs),
     )
 
@@ -106,7 +106,7 @@ def test_list_models_parses_missing_and_partial_fields(monkeypatch):
 
 def test_test_connection_returns_disconnected_on_http_error(monkeypatch):
     monkeypatch.setattr(
-        "locallama_gui.backends.ollama.httpx.AsyncClient",
+        "myloai.backends.ollama.httpx.AsyncClient",
         lambda **kwargs: _FakeAsyncClient(response=_FakeResponse(should_raise=True), **kwargs),
     )
 
@@ -119,7 +119,7 @@ def test_test_connection_returns_disconnected_on_http_error(monkeypatch):
 
 def test_test_connection_returns_disconnected_on_timeout(monkeypatch):
     monkeypatch.setattr(
-        "locallama_gui.backends.ollama.httpx.AsyncClient",
+        "myloai.backends.ollama.httpx.AsyncClient",
         lambda **kwargs: _FakeAsyncClient(error=httpx.TimeoutException("timeout"), **kwargs),
     )
 
@@ -139,7 +139,7 @@ def test_chat_payload_emits_only_selected_reasoning_mode(monkeypatch):
             return _FakeResponse(payload={"message": {"content": "ok"}})
 
     monkeypatch.setattr(
-        "locallama_gui.backends.ollama.httpx.AsyncClient",
+        "myloai.backends.ollama.httpx.AsyncClient",
         lambda **kwargs: _CaptureClient(**kwargs),
     )
 
@@ -187,7 +187,7 @@ def test_sanitize_request_fields_only_forwards_supported_top_level_fields():
 
 def test_stream_endpoint_raises_for_successful_http_response_with_error_payload(monkeypatch):
     monkeypatch.setattr(
-        "locallama_gui.backends.ollama.httpx.AsyncClient",
+        "myloai.backends.ollama.httpx.AsyncClient",
         lambda **kwargs: _FakeStreamClient(
             ['{"status":"pulling manifest"}', '{"error":"model not found"}'],
             **kwargs,

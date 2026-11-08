@@ -9,11 +9,11 @@ import psutil
 from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QFileDialog, QInputDialog, QMenu, QMessageBox
 
-from locallama_gui import __version__
-from locallama_gui.core.domain import AgentProfile
-from locallama_gui.ui.model_browser import ModelBrowserDialog
-from locallama_gui.ui.setup_wizard import FirstRunWizard
-from locallama_gui.ui.theme import dark_qss
+from myloai import __version__
+from myloai.core.domain import AgentProfile
+from myloai.ui.model_browser import ModelBrowserDialog
+from myloai.ui.setup_wizard import FirstRunWizard
+from myloai.ui.theme import dark_qss
 
 
 def _menu(window, title: str) -> QMenu | None:
@@ -224,8 +224,6 @@ def _add_ai_model_settings(settings, window) -> None:
 
 
 def apply_production_fixes(window, first_run: bool = False) -> None:
-    window.setWindowTitle("MyLoAI Control Center")
-
     developer = _menu(window, "Developer")
     if developer is not None:
         _build_diagnostics_submenu(window, developer)

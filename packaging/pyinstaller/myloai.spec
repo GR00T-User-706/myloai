@@ -1,6 +1,6 @@
 # MyLoAI Control Center production PyInstaller specification.
 # The spec intentionally starts from the active application entry point and
-# collects only the locallama_gui package plus its runtime imports.
+# collects only the myloai package plus its runtime imports.
 
 import sys
 from pathlib import Path
@@ -9,9 +9,9 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules, copy
 
 APP_NAME = "MyLoAI Control Center"
 APP_EXECUTABLE = "MyLoAI_Control_Center"
-PACKAGE = "locallama_gui"
-ROOT_DIR = Path(SPECPATH).resolve().parents[1]
-ICON_PATH = ROOT_DIR / "packaging" / "assets" / "MyLoAI.ico"
+PACKAGE = "myloai"
+ROOT_DIR = Path(SPECPATH).resolve().parents[2]
+ICON_PATH = ROOT_DIR / "packaging" / "assets" / "MyLoAI-icon-dark.png"
 
 hiddenimports = collect_submodules(PACKAGE) + collect_submodules("keyring.backends")
 datas = collect_data_files(PACKAGE, include_py_files=False) + copy_metadata("keyring")
@@ -21,8 +21,8 @@ datas += [
 ]
 
 analysis = Analysis(
-    [str(ROOT_DIR / PACKAGE / "__main__.py")],
-    pathex=[str(ROOT_DIR)],
+    [str(ROOT_DIR / "src" / PACKAGE / "__main__.py")],
+    pathex=[str(ROOT_DIR / "src")],
     binaries=[],
     datas=datas,
     hiddenimports=hiddenimports,

@@ -26,9 +26,9 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from locallama_gui.core.config import AppConfig, ProviderProfile
-from locallama_gui.core.domain import AgentProfile, PromptRecord
-from locallama_gui.core.managers import AgentManager, PluginManager, PromptManager
+from myloai.core.config import AppConfig, ProviderProfile
+from myloai.core.domain import AgentProfile, PromptRecord
+from myloai.core.managers import AgentManager, PluginManager, PromptManager
 
 
 class ModelfileHighlighter(QSyntaxHighlighter):

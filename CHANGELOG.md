@@ -1,3 +1,21 @@
+## [Unreleased]
+
+### Changed
+- Broke the former `locallama_gui` Python namespace and established the conventional `src/myloai/` source-package layout.
+- Updated the application, tests, console entry point, PyInstaller specification, Linux launchers, and packaging metadata to use the `myloai` Python namespace and active `GR00T-User-706/myloai` repository.
+- Replaced the old generated-icon build step with the canonical MyLoAI artwork assets and organized the brand-board reference under `docs/branding/`.
+- Removed the duplicate production window-title override from `production_fixes.py`; the main window now owns its canonical title directly.
+- Synchronized runtime version metadata with the project version `2.0.0`.
+
+### Fixed
+- Repaired imports and test monkeypatch targets broken by the intentional source-directory rename to `src/`.
+- Repaired the PyInstaller source path and package discovery for the new `src/myloai/` layout.
+- Repaired development launcher and desktop-entry installation paths that still targeted the removed `run-locallama`/`locallama-gui` contract.
+- Updated runtime application identity and log filename from the obsolete LocalLama identity to MyLoAI.
+
+### Migration Status
+- The previous `locallama-gui` repository and `locallama_gui` namespace are historical only. The active repository is `GR00T-User-706/myloai`.
+- No user-data compatibility migration is being maintained during this development reset. Existing local configuration/data paths are intentionally outside the current compatibility contract.
 ## [1.2.12] - 2026-09-24
 
 ### Fixed

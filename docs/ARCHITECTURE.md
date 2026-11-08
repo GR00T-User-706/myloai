@@ -1,11 +1,11 @@
-# LocalLama Control Center Architecture
+# MyLoAI Control Center Architecture
 
 Date: 2026-08-17
 Status: Canonical architecture reference for the active application.
 
 ## 1. Purpose and scope
 
-LocalLama Control Center is a PySide6 desktop application that provides one UI over local Ollama and remote/provider-compatible LLM backends. The active implementation lives under `locallama_gui/`. The `archive/` tree is historical material and is not part of the production runtime.
+MyLoAI Control Center is a PySide6 desktop application that provides one UI over local Ollama and remote/provider-compatible LLM backends. The active implementation lives under `src/myloai/`. The `archive/` tree is historical material and is not part of the production runtime.
 
 This document describes the architecture that the current source implements. It is not a roadmap and does not grant archived code production status.
 
@@ -836,10 +836,10 @@ This document describes the architecture that the current source implements. It 
 The supported Python entry point is:
 
 ```text
-locallama-gui
+myloai
 ```
 
-which resolves to `locallama_gui.app:main`. The module entry point `python -m locallama_gui` is also supported by the package.
+which resolves to `myloai.app:main`. The module entry point `python -m myloai` is also supported by the package.
 
 Startup flow:
 
@@ -847,7 +847,7 @@ Startup flow:
 launcher / module
       |
       v
-locallama_gui.app.main()
+myloai.app.main()
       |
       +--> AppConfig.load()
       |       |
@@ -874,7 +874,7 @@ locallama_gui.app.main()
 ## 3. Package boundaries
 
 ```text
-locallama_gui/
+src/myloai/
 ├── app.py                         Application bootstrap
 ├── __main__.py                    Module launcher
 ├── backends/
@@ -1098,7 +1098,7 @@ Theme selection is persisted through `UISettings`. Main-window geometry/state an
 
 ## 15. Packaging boundary
 
-Packaging metadata is defined in `pyproject.toml`. The project installs the `locallama-gui` console entry point. Linux desktop integration is kept under `packaging/linux/` and the launcher installation helpers are under `scripts/`.
+Packaging metadata is defined in `pyproject.toml`. The project installs the `myloai` console entry point. Linux desktop integration is kept under `packaging/linux/` and the launcher installation helpers are under `scripts/`.
 
 ## 16. Testing boundary
 

@@ -7,7 +7,7 @@ Scope: Current repository versioning policy and synchronization rules.
 
 ### CONFIRMED
 - `pyproject.toml` version: `1.2.12`
-- `locallama_gui/__init__.py` version: `1.2.12`
+- `src/myloai/__init__.py` version: `1.2.12`
 - `CHANGELOG.md` latest version heading: `1.2.12` (dated 2026-09-24)
 - Linux Arch package version: `1.2.12`
 - Linux man page version: `1.2.12`
@@ -17,11 +17,11 @@ Scope: Current repository versioning policy and synchronization rules.
 
 ### Source of truth
 
-`pyproject.toml` is the packaging/release version source. `locallama_gui/__init__.py` must remain synchronized with it for runtime metadata.
+`pyproject.toml` is the packaging/release version source. `src/myloai/__init__.py` must remain synchronized with it for runtime metadata.
 
 All other user-facing packaging/version references must resolve to the same application release version. CI should derive expected version values from `pyproject.toml` instead of maintaining independent hard-coded assertions.
 
-The persisted configuration schema has a separate source of truth: `CONFIG_SCHEMA_VERSION` in `locallama_gui/core/config.py`. Configuration schema versions describe persisted-data compatibility and must not be treated as application release versions.
+The persisted configuration schema has a separate source of truth: `CONFIG_SCHEMA_VERSION` in `src/myloai/core/config.py`. Configuration schema versions describe persisted-data compatibility and must not be treated as application release versions.
 
 See `docs/CONFIG_SCHEMA.md` for the persisted configuration contract and migration policy.
 
@@ -38,7 +38,7 @@ Use `MAJOR.MINOR.PATCH`.
 Verify and update as needed:
 
 1. `pyproject.toml`
-2. `locallama_gui/__init__.py`
+2. `src/myloai/__init__.py`
 3. `CHANGELOG.md` with one new top-level entry
 4. Any user-facing version references in docs/README
 5. Any About/version display paths

@@ -1,5 +1,5 @@
 #ifndef MyLoAIVersion
-  #define MyLoAIVersion "1.2.12"
+  #define MyLoAIVersion "2.0.0"
 #endif
 #define MyLoAIName "MyLoAI Control Center"
 #define MyLoAIPublisher "MyLoAI"
@@ -18,7 +18,6 @@ OutputBaseFilename=MyLoAI-Control-Center-{#MyLoAIVersion}-Windows-x64
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
-SetupIconFile=..\assets\MyLoAI.ico
 UninstallDisplayIcon={app}\{#MyLoAIExe}
 ArchitecturesInstallIn64BitMode=x64compatible
 PrivilegesRequired=lowest

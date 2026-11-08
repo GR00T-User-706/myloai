@@ -9,8 +9,8 @@ from pathlib import Path
 from types import ModuleType
 from typing import Any, Protocol
 
-from locallama_gui.core.config import AppConfig
-from locallama_gui.core.domain import AgentProfile, ChatSession, PromptRecord, now_iso
+from myloai.core.config import AppConfig
+from myloai.core.domain import AgentProfile, ChatSession, PromptRecord, now_iso
 
 
 class SessionManager:

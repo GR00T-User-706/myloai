@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from locallama_gui.core.config import CONFIG_SCHEMA_VERSION, AppConfig, AppPaths
+from myloai.core.config import CONFIG_SCHEMA_VERSION, AppConfig, AppPaths
 
 
 def make_paths(tmp_path: Path) -> AppPaths:
@@ -28,7 +28,7 @@ def test_legacy_unversioned_config_migrates_to_current_schema(monkeypatch, tmp_p
         "active_provider": "Local Ollama",
     }
     (paths.config_dir / "config.json").write_text(json.dumps(legacy), encoding="utf-8")
-    monkeypatch.setattr("locallama_gui.core.config.AppPaths.create", lambda: paths)
+    monkeypatch.setattr("myloai.core.config.AppPaths.create", lambda: paths)
 
     loaded = AppConfig.load()
 
@@ -44,7 +44,7 @@ def test_future_config_schema_is_rejected(monkeypatch, tmp_path):
         json.dumps({"schema_version": CONFIG_SCHEMA_VERSION + 1}),
         encoding="utf-8",
     )
-    monkeypatch.setattr("locallama_gui.core.config.AppPaths.create", lambda: paths)
+    monkeypatch.setattr("myloai.core.config.AppPaths.create", lambda: paths)
 
     with pytest.raises(ValueError, match="Unsupported config schema version"):
         AppConfig.load()

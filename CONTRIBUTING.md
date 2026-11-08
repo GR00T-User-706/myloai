@@ -1,12 +1,12 @@
 # Contributing
 
-Thanks for contributing to LocalLama GUI.
+Thanks for contributing to MyLoAI GUI.
 
 ## Scope statement
 
-**Active development scope:** `locallama_gui/**`
+**Active development scope:** `src/myloai/**`
 
-Changes in `locallama_gui/**` are the primary target for reviews, required CI checks, and ongoing maintenance.
+Changes in `src/myloai/**` are the primary target for reviews, required CI checks, and ongoing maintenance.
 
 ## Legacy and archive directories
 
@@ -21,7 +21,7 @@ These trees are historical storage, not active product roots. Changes there are 
 
 ## Pull request guidance
 
-- Prefer feature and bug-fix work inside `locallama_gui/**`.
+- Prefer feature and bug-fix work inside `src/myloai/**`.
 - Keep changes focused and preserve existing behavior unless the task requires a behavior change.
 - Do not revive archived code in place. Move useful code into the active tree and validate it there.
 - When security-sensitive behavior changes, include regression coverage where practical.

@@ -8,7 +8,7 @@ Security fixes are currently provided for the latest released version on the def
 
 Please do **not** open public issues for suspected security vulnerabilities.
 
-Instead, report privately by opening a GitHub Security Advisory draft (if enabled). If advisories are unavailable, email security@locallama-gui.org as a private fallback channel.
+Instead, report privately by opening a GitHub Security Advisory draft (if enabled). If advisories are unavailable, contact the project maintainer privately through the repository's available private-contact mechanism.
 
 Please include:
 

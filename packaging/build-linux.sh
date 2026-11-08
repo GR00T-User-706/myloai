@@ -14,7 +14,7 @@ fail() {
 
 command -v "$PYTHON" >/dev/null 2>&1 || fail "Python 3 is required. Set PYTHON=/path/to/python or install Python 3."
 command -v dpkg-deb >/dev/null 2>&1 || fail "dpkg-deb is required for the Debian artifact. On Manjaro/Arch: sudo pacman -S dpkg."
-"$PYTHON" -c 'import PyInstaller, PIL, PySide6, httpx, platformdirs, pydantic, psutil, markdown, keyring' >/dev/null 2>&1 || fail "Build Python dependencies are missing. Activate the project venv and install the project plus PyInstaller and Pillow."
+"$PYTHON" -c 'import PyInstaller, PySide6, httpx, platformdirs, pydantic, psutil, markdown, keyring' >/dev/null 2>&1 || fail "Build Python dependencies are missing. Activate the project venv and install the project plus PyInstaller."
 
 if [ ! -x "$APPIMAGETOOL" ] && ! command -v appimagetool >/dev/null 2>&1; then
     fail "appimagetool is required for the AppImage. Put the executable at build/appimagetool or set APPIMAGETOOL=/path/to/appimagetool."

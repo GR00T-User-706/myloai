@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Protocol
 
-from locallama_gui.backends.manager import create_backend
-from locallama_gui.ui.diagnostics import OperationStreamParser
-from locallama_gui.ui.workers import StreamTask
+from myloai.backends.manager import create_backend
+from myloai.ui.diagnostics import OperationStreamParser
+from myloai.ui.workers import StreamTask
 
 
 class ModelWindowPort(Protocol):

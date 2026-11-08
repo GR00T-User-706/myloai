@@ -1,14 +1,21 @@
-# MyLoAI migration staging area
+# MyLoAI Control Center
 
-This directory is an additive staging copy of the current MyLoAI Control Center application from the historical `locallama-gui` repository.
+MyLoAI Control Center is a PySide6 desktop control center for local Ollama and remote/provider-compatible LLM backends.
 
-## Important
+## Repository layout
 
-- The original repository files are not moved, renamed, deleted, or rewritten by this migration.
-- Relative paths below `migrate/` mirror the source repository wherever practical.
-- This is a staging copy, not yet a new Git repository and not yet a verified standalone release.
-- Historical archive trees and superseded experimental applications are intentionally excluded.
-- The migration manifest is authoritative for copied files, files that could not be copied, and exclusions.
-- Binary files cannot be created through the available text-only GitHub file operation. Their original paths, blob identifiers, sizes, and retrieval requirements are recorded in the manifest.
+`src/` is the Python source-layout boundary. The application package lives at `src/myloai/` and is imported as `myloai`.
 
-Start with [MIGRATION_MANIFEST.md](MIGRATION_MANIFEST.md).
+`tests/`, `packaging/`, and `docs/` contain the active test, release, and documentation surfaces.
+
+The former `GR00T-User-706/locallama-gui` repository is the historical archive. The active repository is `GR00T-User-706/myloai`.
+
+## Development entry point
+
+`python -m myloai`
+
+## Installed command
+
+`myloai`
+
+See [docs/BUILDING.md](docs/BUILDING.md) for production packaging and [docs/MIGRATION_STATUS.md](docs/MIGRATION_STATUS.md) for the current migration state.
