@@ -1,7 +1,7 @@
 # Feature Matrix and Application Contract
 
 Date: 2026-08-17
-Scope: Entire active application under `locallama_gui/`.
+Scope: Entire active application under `src/myloai/`.
 
 This is the canonical contract for visible application capabilities. A row describes behavior the application is expected to provide. Status reflects the current implementation state, not a promise about every backend/environment.
 
@@ -18,8 +18,8 @@ Backend availability, authentication, model availability, desktop environment, a
 
 | Area | Action | Status | Contract / current behavior | Primary implementation |
 |---|---|---|---|---|
-| Launch | `locallama-gui` | implemented | Starts the Qt application through the package console entry point. | `app.py`, `pyproject.toml` |
-| Launch | `python -m locallama_gui` | implemented | Starts the same application module entry point. | `app.py`, `__main__.py` |
+| Launch | `myloai` | implemented | Starts the Qt application through the package console entry point. | `app.py`, `pyproject.toml` |
+| Launch | `python -m myloai` | implemented | Starts the same application module entry point. | `app.py`, `__main__.py` |
 | Startup | Configuration load | implemented | Loads/migrates current configuration before the main window is constructed. | `core/config.py` |
 | Startup | Logging setup | implemented | Configures application logging before window creation. | `core/logging.py` |
 | Startup | Initial chat | implemented | Main window creates an initial chat tab. | `ui/main_window.py` |
@@ -173,7 +173,7 @@ Backend availability, authentication, model availability, desktop environment, a
 
 ## 14. Contract rules
 
-1. Rows marked **implemented** must remain represented by active production code under `locallama_gui/`.
+1. Rows marked **implemented** must remain represented by active production code under `src/myloai/`.
 2. Archived implementations must not be used as evidence that a current feature works.
 3. A backend-dependent operation is implemented when the application path validates input, delegates through the backend abstraction, handles asynchronous completion/error, and updates relevant UI state. Backend availability is an environmental prerequisite.
 4. A feature marked **partial** must not be described elsewhere as fully integrated.

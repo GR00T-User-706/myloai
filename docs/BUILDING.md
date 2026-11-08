@@ -20,7 +20,7 @@ For the current Manjaro/Arch development machine:
 Use a path without spaces.
 
 ```bash
-cd ~/src/locallama-gui
+cd ~/src/myloai
 ```
 
 ### 2. Create or activate the build environment
@@ -40,11 +40,11 @@ source .venv/bin/activate
 
 ### 3. Install the build requirements
 
-The build environment needs the project runtime dependencies plus PyInstaller and Pillow.
+The build environment needs the project runtime dependencies plus PyInstaller.
 
 ```bash
 python -m pip install -e .
-python -m pip install pyinstaller pillow
+python -m pip install pyinstaller
 ```
 
 If the machine is offline, those packages must already be available in the local pip cache or supplied as wheel files. The production build itself does not download anything.
@@ -118,7 +118,7 @@ For actual Debian installation testing, use a Debian/Ubuntu environment. Buildin
 | markdown | Application dependency | Yes |
 | keyring | Application dependency | Yes |
 | PyInstaller | Creates bundled application | Yes |
-| Pillow | Icon generation | Yes |
+| Pillow | Optional PyInstaller image conversion | Build-time when required |
 | dpkg-deb | Creates `.deb` | Debian artifact |
 | appimagetool | Creates AppImage | AppImage artifact |
 
@@ -178,7 +178,7 @@ Do not ask end users to:
 - install PyInstaller
 - clone the repository
 - run `pip install`
-- run `python -m locallama_gui`
+- run `python -m myloai`
 - use `run-locallama`
 
 Those are development/build paths, not production installation paths.

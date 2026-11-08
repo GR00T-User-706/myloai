@@ -4,10 +4,10 @@
 
 - Product: MyLoAI Control Center
 - Short name: MyLoAI
-- Repository: locallama-gui
+- Repository: myloai
 - Canonical Linux command: `myloai`
 - Filesystem-safe application executable: `MyLoAI_Control_Center`
-- Canonical Python package namespace remains `locallama_gui` for compatibility with the existing application.
+- Canonical Python package namespace remains `myloai` for compatibility with the existing application.
 
 ## Runtime and launcher contract
 
@@ -53,4 +53,4 @@ A release is not considered production-ready until:
 - each target package has its expected executable/launcher and documentation;
 - package metadata identifies MyLoAI Control Center;
 - the canonical `myloai` launcher works on Linux;
-- existing `locallama-gui` compatibility is preserved unless intentionally changed in a separately reviewed release decision.
+- existing `myloai` compatibility is preserved unless intentionally changed in a separately reviewed release decision.

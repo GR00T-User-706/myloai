@@ -9,7 +9,7 @@ import keyring
 from keyring.errors import KeyringError, PasswordDeleteError
 from platformdirs import user_config_dir, user_data_dir, user_log_dir
 
-APP_NAME = "locallama-gui"
+APP_NAME = "MyLoAI"
 CONFIG_SCHEMA_VERSION = 2
 APP_SYSTEM_PROMPT = """You are running inside MyLoAI Control Center, a PySide6 desktop frontend for Ollama.
 

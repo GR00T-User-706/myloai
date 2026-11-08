@@ -1,7 +1,7 @@
 # QA Checklist
 
 Date: 2026-08-17
-Scope: Regression and release checklist for the active LocalLama Control Center application.
+Scope: Regression and release checklist for the active MyLoAI Control Center application.
 
 This document is a test contract, not a claim that every manual item is currently passing. Mark each item only after executing it against the target build.
 
@@ -21,7 +21,7 @@ Run from repository root:
 
 ```bash
 ruff check .
-python -m compileall -q locallama_gui
+python -m compileall -q myloai
 pytest tests
 ```
 
@@ -35,8 +35,8 @@ Also verify:
 
 ## 2. Launch and startup
 
-- [ ] `locallama-gui` launches successfully.
-- [ ] `python -m locallama_gui` launches successfully.
+- [ ] `myloai` launches successfully.
+- [ ] `python -m myloai` launches successfully.
 - [ ] A normal configured installation reaches the main window.
 - [ ] A missing/unavailable Ollama endpoint does not crash startup.
 - [ ] Startup reports backend availability clearly.
@@ -49,7 +49,7 @@ Also verify:
 ### Missing Ollama
 
 - [ ] Stop/unavailable Ollama.
-- [ ] Launch LocalLama.
+- [ ] Launch MyLoAI.
 - [ ] Application remains usable for UI/configuration workflows.
 - [ ] Connection failure is visible through status/diagnostics.
 - [ ] No traceback is dumped as an unexplained UI failure.

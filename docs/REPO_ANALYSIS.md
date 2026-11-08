@@ -1,3 +1,9 @@
+# Historical Repository Analysis
+
+> **Historical artifact:** This analysis describes the pre-reset application state and is retained for provenance. It is not the current architecture reference. See `docs/ARCHITECTURE.md` and `docs/MIGRATION_STATUS.md` for the active state.
+
+---
+
 # Repository Analysis Report
 
 Date: 2026-08-17

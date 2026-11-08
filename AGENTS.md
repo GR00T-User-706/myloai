@@ -618,7 +618,7 @@ Production native packaging uses these canonical identities:
 
 The repository launcher and installer helpers remain development-only:
 
-- `run-locallama`
+- `myloai`
 - `scripts/install-launcher`
 - `scripts/install-desktop-entry`
 

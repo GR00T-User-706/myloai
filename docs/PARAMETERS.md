@@ -6,7 +6,7 @@ Scope: Baseline explanation of generation/config parameters from observed config
 ## Reasoning Mode
 
 ### CONFIRMED
-`locallama_gui/core/config.py` defines `reasoning_mode` with allowed values:
+`src/myloai/core/config.py` defines `reasoning_mode` with allowed values:
 - `normal`
 - `thinking`
 - `plan`

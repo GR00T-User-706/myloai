@@ -3,7 +3,7 @@ pkgver=2.0.0
 pkgrel=2
 pkgdesc='MyLoAI Control Center'
 arch=('x86_64')
-url='https://github.com/GR00T-User-706/locallama-gui'
+url='https://github.com/GR00T-User-706/myloai'
 license=('custom')
 
 depends=(
@@ -31,13 +31,13 @@ makedepends=(
 )
 
 source=(
-    "myloai-${pkgver}.tar.gz::https://github.com/GR00T-User-706/locallama-gui/archive/refs/heads/main.tar.gz"
+    "myloai-${pkgver}.tar.gz::https://github.com/GR00T-User-706/myloai/archive/refs/heads/main.tar.gz"
 )
 
 sha256sums=('SKIP')
 
 build() {
-    cd "$srcdir/locallama-gui-main"
+    cd "$srcdir/myloai-main"
 
     /usr/bin/python -m PyInstaller \
         --noconfirm \
@@ -48,7 +48,7 @@ build() {
 }
 
 package() {
-    cd "$srcdir/locallama-gui-main"
+    cd "$srcdir/myloai-main"
 
     install -dm755 "$pkgdir/opt/myloai"
     cp -a dist/MyLoAI_Control_Center/. "$pkgdir/opt/myloai/"
@@ -69,7 +69,7 @@ EOF
     install -Dm644 packaging/USER_MANUAL.md \
         "$pkgdir/usr/share/doc/myloai/USER_MANUAL.md"
 
-    install -Dm644 packaging/linux/appimage/myloai.svg \
+    install -Dm644 packaging/assets/MyLoAI-icon-dark.png \
         "$pkgdir/usr/share/icons/hicolor/512x512/apps/myloai.png"
 
     install -Dm644 LICENSE \

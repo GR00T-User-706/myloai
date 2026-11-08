@@ -1,6 +1,6 @@
 # MyLoAI Control Center Project Standards
 
-The repository is named `locallama-gui`; the user-facing application name is MyLoAI Control Center. These standards supplement `AGENTS.md`, `CONTRIBUTING.md`, the architecture and configuration references, and the packaging/user-manual documentation.
+The repository is named `myloai`; the user-facing application name is MyLoAI Control Center. These standards supplement `AGENTS.md`, `CONTRIBUTING.md`, the architecture and configuration references, and the packaging/user-manual documentation.
 
 ## Product identity and interface
 

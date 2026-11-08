@@ -34,7 +34,7 @@ The configuration schema version is independent from the application/package ver
 }
 ```
 
-The `parameters` and `ui` objects are represented by `GenerationParameters` and `UISettings` in `locallama_gui/core/config.py`.
+The `parameters` and `ui` objects are represented by `GenerationParameters` and `UISettings` in `src/myloai/core/config.py`.
 
 ## Schema version 2
 

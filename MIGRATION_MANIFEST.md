@@ -1,3 +1,9 @@
+# Historical Migration Manifest
+
+> **Historical artifact:** This file documents the migration staging process from the former `GR00T-User-706/locallama-gui` repository. It is provenance documentation, not the current source-tree or package contract. The active package is `src/myloai/` in `GR00T-User-706/myloai`.
+
+---
+
 # MyLoAI Control Center Migration Manifest
 
 ## Purpose
